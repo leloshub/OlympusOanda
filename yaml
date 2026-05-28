@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: gbpusd-olympus-bot
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn gbpusd_alert_bot:app
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: CHAT_ID
+        sync: false
